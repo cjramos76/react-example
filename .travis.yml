@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t cjramos76/react-frontend -f Dockerfile.dev .
+
+script:
+    - docker run cjramos76/react-frontend npm run test -- --coverage
